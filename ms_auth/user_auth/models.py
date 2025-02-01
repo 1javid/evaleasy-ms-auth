@@ -1,7 +1,8 @@
 # user_auth/models.py
 from django.db import models
-from django.contrib.auth.hashers import make_password
+from django.contrib.auth.hashers import make_password, check_password
 from django.contrib.auth.models import BaseUserManager
+from django.core.exceptions import ValidationError
 
 class UserManager(BaseUserManager):
     def create_user(self, user_id, user_type, institution, first_name, last_name, email, password=None, **extra_fields):
@@ -47,3 +48,8 @@ class User(models.Model):
         if not self.password.startswith('pbkdf2_'):  # Skip hashing if already hashed
             self.password = make_password(self.password)
         super().save(*args, **kwargs)
+    
+    def check_password(self, raw_password):
+        if not check_password(raw_password, self.password):
+            raise ValidationError("Incorrect password.")
+        return True
