@@ -10,6 +10,7 @@ MS Auth is a Django-based microservice for handling authentication and user mana
 ## Endpoints
 - `POST /api/create/institution/` - Create a new institution
 - `POST /api/create/representative/` - Create a new representative
+- `POST /api/login/` - Login and obtain JWT token
 
 ## Requirements
 - Python 3.8+
@@ -62,4 +63,4 @@ MS Auth is a Django-based microservice for handling authentication and user mana
     ```sh
     python manage.py runserver
     ```
-2. Access the API at `http://localhost:8000/api/`
+2. Access the API at `http://127.0.0.1:8000/api/`
