@@ -69,4 +69,4 @@ MS Auth is a Django-based microservice for handling authentication and user mana
     ```sh
     python manage.py runserver
     ```
-2. Access the API at `http://127.0.0.1:8000/api/auth/`
+2. Access the API at `http://127.0.0.1:8001/api/auth/`
